@@ -1,8 +1,12 @@
 import NotificationButton from "../../components/NotificationButton"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useState } from "react";
 
 function SaleCard() {
+    
+    const [minDate, setMinDate] = useState(new Date()) ;
+    const [maxDate, setmaxDate] = useState(new Date()) ;
 
     return (
         <>
@@ -11,16 +15,16 @@ function SaleCard() {
                 <div>
                     <div className="dsmeta-form-control-container">
                         <DatePicker
-                            selected={new Date()}
-                            onChange={(date: Date) => { }}
+                            selected={minDate}
+                            onChange={(date: Date) =>  setMinDate(date)}
                             className="dsmeta-form-control"
                             dateFormat="dd/MM/yyyy"
                         />
                     </div>
                     <div className="dsmeta-form-control-container">
                         <DatePicker
-                            selected={new Date()}
-                            onChange={(date: Date) => { }}
+                            selected={maxDate}
+                            onChange={(date: Date) => setmaxDate(date) }
                             className="dsmeta-form-control"
                             dateFormat="dd/MM/yyyy"
                         />
